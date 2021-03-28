@@ -47,5 +47,13 @@ namespace com.edgewords.spec.scenariocontext.Steps
             string ResultText = _driver.FindElement(By.CssSelector("div[class=g] > div:first-of-type div.yuRUbf h3")).Text;
             Assert.That(ResultText, Does.Contain(searchterm).IgnoreCase,"Word not in top result");
         }
+
+        [Then(@"the new value is here")]
+        public void ThenTheNewValueIsHere()
+        {
+
+            Console.WriteLine("SHould not be Hello World: " + _scenarioContext["SomeDataToPassRound"]);
+            Assert.That(_scenarioContext["SomeDataToPassRound"], Is.EqualTo("FooBar"), "Context was not changed");
+        }
     }
 }

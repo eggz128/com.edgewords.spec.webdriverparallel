@@ -35,7 +35,10 @@ namespace com.edgewords.spec.scenariocontext.Hooks
         {
 
             _driver = new ChromeDriver();
+            _scenarioContext["SomeDataToPassRound"] = "Hello World";
             _scenarioContext["driver"] = _driver; //this...works...
+
+
             
         }
         [AfterScenario]

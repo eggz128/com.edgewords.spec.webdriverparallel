@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TechTalk.SpecFlow;
 using System.Threading;
+using NUnit.Framework;
 
 
 namespace com.edgewords.spec.scenariocontext.Steps
@@ -22,6 +23,7 @@ namespace com.edgewords.spec.scenariocontext.Steps
         public void GivenIAmOnTheBingHomePage()
         {
             _driver.Url = "http://www.bing.com";
+            Console.WriteLine(_scenarioContext["SomeDataToPassRound"]);
             Thread.Sleep(5000);
         }
 
@@ -50,5 +52,23 @@ namespace com.edgewords.spec.scenariocontext.Steps
             _driver.FindElement(By.LinkText("Submit")).Click();
             Thread.Sleep(5000);
         }
+
+        [When(@"I put '(.*)' in the SomeDataToPassAround key")]
+        public void WhenIPutInTheSomeDataToPassAroundKey(string newData)
+        {
+            Console.WriteLine("SomeDataToPassRound is :" + _scenarioContext["SomeDataToPassRound"]);
+            _scenarioContext["SomeDataToPassRound"] = newData;
+            Console.WriteLine("SomeDataToPassRound now is :" + _scenarioContext["SomeDataToPassRound"]);
+        }
+
+
+
+        [Then(@"the SomeDataToPassAround value is still Hello World")]
+        public void ThenTheSomeDataToPassAroundValueIsStillHelloWorld()
+        {
+            Console.WriteLine(_scenarioContext["SomeDataToPassRound"]);
+            Assert.That(_scenarioContext["SomeDataToPassRound"], Is.EqualTo("Hello World"), "Context changed");
+        }
+
     }
 }
