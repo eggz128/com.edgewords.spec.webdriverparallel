@@ -38,21 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\FourthFeature.feature.cs">
-      <DependentUpon>FourthFeature.feature</DependentUpon>
-    </Compile>
-    <Compile Update="Features\FifthFeature.feature.cs">
-      <DependentUpon>FifthFeature.feature</DependentUpon>
-    </Compile>
-    <Compile Update="Features\SixthFeature.feature.cs">
-      <DependentUpon>SixthFeature.feature</DependentUpon>
-    </Compile>
-    <Compile Update="Features\SecondFeature.feature.cs">
-      <DependentUpon>SecondFeature.feature</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowFeatureFiles Update="Features\FourthFeature.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

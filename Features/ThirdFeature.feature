@@ -1,5 +1,5 @@
 ﻿Feature: Do something completely different
-#Step definitions for these scenarios are in FristSteps.cs and SecondSteps.cs
+#Step definitions for these scenarios are in FirstSteps.cs and SecondSteps.cs
 
 Scenario: Login to edgewords webdriver site
 	Given I am on the Edgewords Login Page

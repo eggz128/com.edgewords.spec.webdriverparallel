@@ -7,7 +7,7 @@ using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Support.UI;
 
-namespace com.edgewords.spec.scenariocontext.Steps
+namespace com.edgewords.spec.webdriverparallel.Steps
 {
     [Binding]
     public class SecondSteps
@@ -25,6 +25,7 @@ namespace com.edgewords.spec.scenariocontext.Steps
         {
             _driver.Url = "http://www.google.com";
             //Fresh browser instance. Will need to accept cookies!
+            //Note Google are AB testing alternative cookie acceptance dialogs
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
             IWebElement CookieFrame = wait.Until(drv => drv.FindElement(By.CssSelector("iframe[src*='consent.google.com']")));
 

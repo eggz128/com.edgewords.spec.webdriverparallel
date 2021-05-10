@@ -7,17 +7,17 @@ using System.Threading;
 using NUnit.Framework;
 
 
-namespace com.edgewords.spec.scenariocontext.Steps
+namespace com.edgewords.spec.webdriverparallel.Steps
 {
     [Binding]
     public class FirstSteps
     {
         private readonly ScenarioContext _scenarioContext; //Context is injected by specflow in the constructor.
-        private readonly IWebDriver _driver; //Read only for thread safety?
+        private readonly IWebDriver _driver; //Read only for thread safety
         public FirstSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
-            _driver = (IWebDriver)_scenarioContext["driver"]; //With a cast...this works...
+            _driver = (IWebDriver)_scenarioContext["driver"]; //Retreive driver and cast
         }
         [Given(@"I am on the Bing Home page")]
         public void GivenIAmOnTheBingHomePage()

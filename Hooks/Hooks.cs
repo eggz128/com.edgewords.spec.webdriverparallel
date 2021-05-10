@@ -14,7 +14,7 @@ using NUnit.Framework;
 [assembly: Parallelizable(ParallelScope.Fixtures)] //Can only parallelise Features
 [assembly: LevelOfParallelism(8)] //Worker thread i.e. max amount of Features to run in Parallel
 
-namespace com.edgewords.spec.scenariocontext.Hooks
+namespace com.edgewords.spec.webdriverparallel.Hooks
 {
     [Binding]
     class Hooks
@@ -35,18 +35,20 @@ namespace com.edgewords.spec.scenariocontext.Hooks
         {
 
             _driver = new ChromeDriver();
+            //put the WebDriver object in to the shared dictionary
+            //for use in other step bindings
+            _scenarioContext["driver"] = _driver; 
+
+            //Random bit of data to check scenarios remain independent
+            //See SixthFeature.feature
             _scenarioContext["SomeDataToPassRound"] = "Hello World";
-            _scenarioContext["driver"] = _driver; //this...works...
 
-
-            
         }
         [AfterScenario]
         public void TearDown()
         {
-            _driver.Quit(); //Is this parallel safe? Seems to work.
+            _driver.Quit(); //Quits the WebDriver context used in each Scenario
         }
         
-
     }
 }

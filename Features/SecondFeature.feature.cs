@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace com.edgewords.spec.scenariocontext.Features
+namespace com.edgewords.spec.webdriverparallel.Features
 {
     using TechTalk.SpecFlow;
     using System;
